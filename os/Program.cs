@@ -5,7 +5,7 @@ using System.IO.Compression;
 using System.Text.Json;
 using System.Xml.Serialization;
 
-    namespace os
+namespace os
 {
     [Serializable]
     public class Car//объявление класса
@@ -63,7 +63,7 @@ using System.Xml.Serialization;
                         }
                     case 2:
                         {
-                            string path = "Z://test/";
+                            string path = "C:\\Users\\student\\source\\repos\\os_1\\test\\";
                             Console.WriteLine("Выберите функцию:");
                             Console.WriteLine("Выйти в главное меню - 0");
                             Console.WriteLine("Создать файл - 1");
@@ -167,7 +167,7 @@ using System.Xml.Serialization;
                                     }
                                 case 1:
                                     {
-                                        using (FileStream fs = new FileStream("Z://test/user.json", FileMode.OpenOrCreate))
+                                        using (FileStream fs = new FileStream("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json", FileMode.OpenOrCreate))
                                         {
                                             Console.WriteLine("Введите имя:");
                                             string name = Console.ReadLine();
@@ -180,10 +180,10 @@ using System.Xml.Serialization;
                                     }
                                 case 2:
                                     {
-                                        FileInfo f1Info = new FileInfo("Z://test/user.json");
+                                        FileInfo f1Info = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json");
                                         if (f1Info.Exists)
                                         {
-                                            using (FileStream fs = new FileStream("Z://test/user.json", FileMode.OpenOrCreate))
+                                            using (FileStream fs = new FileStream("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json", FileMode.OpenOrCreate))
                                             {
                                                 Person restoredPerson = await JsonSerializer.DeserializeAsync<Person>(fs);
                                                 Console.WriteLine($"Name: {restoredPerson.Name}  Age: {restoredPerson.Age}");
@@ -197,10 +197,10 @@ using System.Xml.Serialization;
                                     }
                                 case 3:
                                     {
-                                        FileInfo f1Info = new FileInfo("Z://test/user.json");
+                                        FileInfo f1Info = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json");
                                         if (f1Info.Exists)
                                         {
-                                            FileInfo fileInf = new FileInfo("Z://test/user.json");
+                                            FileInfo fileInf = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json");
                                             if (fileInf.Exists)
                                             {
                                                 fileInf.Delete();
@@ -232,66 +232,66 @@ using System.Xml.Serialization;
                                     }
                                 case 1:
                                     {
-                                        using (FileStream fstream = new FileStream("Z://test/car.xml", FileMode.Create))
+                                        using (FileStream fstream = new FileStream("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml", FileMode.Create))
                                         {
                                         }
                                         break;
                                     }
                                 case 2:
                                     {
-                                            Car avto = new Car(); //объявляем avto экземпляром класса
-                                            Console.WriteLine("Введите данные автомобиля");
-                                            Console.Write("Марка: ");
-                                            avto.Marka = Console.ReadLine(); //считывает марку авто
-                                            Console.Write("Модель: ");
-                                            avto.Model = Console.ReadLine(); //считывает модель авто
-                                            Console.Write("Цвет: ");
-                                            avto.Cvet = Console.ReadLine(); //считывает цвет авто
-                                            Console.Write("Год выпуска: ");
-                                            avto.Vypusk = Console.ReadLine(); //считывает год выпуска авто
-                                            StreamWriter writer = new StreamWriter("Z://test/car.xml");
-                                            XmlSerializer serializer = new XmlSerializer(typeof(Car));
-                                            serializer.Serialize(writer, avto);
-                                            writer.Close();
-                                            break;
+                                        Car avto = new Car(); //объявляем avto экземпляром класса
+                                        Console.WriteLine("Введите данные автомобиля");
+                                        Console.Write("Марка: ");
+                                        avto.Marka = Console.ReadLine(); //считывает марку авто
+                                        Console.Write("Модель: ");
+                                        avto.Model = Console.ReadLine(); //считывает модель авто
+                                        Console.Write("Цвет: ");
+                                        avto.Cvet = Console.ReadLine(); //считывает цвет авто
+                                        Console.Write("Год выпуска: ");
+                                        avto.Vypusk = Console.ReadLine(); //считывает год выпуска авто
+                                        StreamWriter writer = new StreamWriter("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml");
+                                        XmlSerializer serializer = new XmlSerializer(typeof(Car));
+                                        serializer.Serialize(writer, avto);
+                                        writer.Close();
+                                        break;
                                     }
                                 case 3:
                                     {
-                                            Car avto = new Car(); //объявляем avto экземпляром класса
-                                            Stream streamout = new FileStream("Z://test/car.xml", FileMode.Open, FileAccess.Read);
-                                            XmlSerializer xml = new XmlSerializer(typeof(Car));
-                                            avto = (Car)xml.Deserialize(streamout);
-                                            streamout.Close();
-                                            Console.WriteLine("Марка  " + "Модель  " + "Цвет  " + "Год выпуска  ");
-                                            Console.WriteLine(avto.Marka + "    " + avto.Model + "    " + avto.Cvet + "    " + avto.Vypusk);
-                                            break;
+                                        Car avto = new Car(); //объявляем avto экземпляром класса
+                                        Stream streamout = new FileStream("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml", FileMode.Open, FileAccess.Read);
+                                        XmlSerializer xml = new XmlSerializer(typeof(Car));
+                                        avto = (Car)xml.Deserialize(streamout);
+                                        streamout.Close();
+                                        Console.WriteLine("Марка  " + "Модель  " + "Цвет  " + "Год выпуска  ");
+                                        Console.WriteLine(avto.Marka + "    " + avto.Model + "    " + avto.Cvet + "    " + avto.Vypusk);
+                                        break;
                                     }
                                 case 4:
                                     {
-                                            FileInfo f1Info = new FileInfo("Z://test/car.xml");
-                                            if (f1Info.Exists)
+                                        FileInfo f1Info = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml");
+                                        if (f1Info.Exists)
+                                        {
+                                            FileInfo fileInf = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml");
+                                            if (fileInf.Exists)
                                             {
-                                                FileInfo fileInf = new FileInfo("Z://test/car.xml");
-                                                if (fileInf.Exists)
-                                                {
-                                                    fileInf.Delete();
-                                                }
+                                                fileInf.Delete();
                                             }
-                                            else
-                                            {
-                                                Console.WriteLine("Файл не существует");
-                                            }
-                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Файл не существует");
+                                        }
+                                        break;
                                     }
                             }
                             break;
                         }
                     case 5:
                         {
-                            string zipfolder = "Z://test/0fold/";
-                            string sourceFolder = "Z://test/"; // исходная папка
-                            string arhiv = "Z://test/test.zip";
-                            string targetFolder = "Z://test/unziped"; // папка, куда распаковывается файл
+                            string zipfolder = "C:\\Users\\student\\source\\repos\\os_1\\test\\0fold/";
+                            string sourceFolder = "C:\\Users\\student\\source\\repos\\os_1\\test\\"; // исходная папка
+                            string arhiv = "C:\\Users\\student\\source\\repos\\os_1\\test\\test.zip";
+                            string targetFolder = "C:\\Users\\student\\source\\repos\\os_1\\test\\unziped"; // папка, куда распаковывается файл
                             Console.WriteLine("Выберите функцию:");
                             Console.WriteLine("Выйти в главное меню - 0");
                             Console.WriteLine("Создать архив в формате zip - 1");
@@ -326,15 +326,15 @@ using System.Xml.Serialization;
                                         }
                                         Console.WriteLine("Введите название файла, который хотите заархивировать:");
                                         string zfile = Console.ReadLine();
-                                        string z1file = "Z://test/"+zfile;
+                                        string z1file = "C:\\Users\\student\\source\\repos\\os_1\\test\\" + zfile;
                                         FileInfo fileInf2 = new FileInfo(z1file);
                                         if (fileInf2.Exists)
                                         {
-                                            fileInf2.MoveTo(zipfolder+zfile);
+                                            fileInf2.MoveTo(zipfolder + zfile);
                                         }
-                                        ZipFile.CreateFromDirectory(zipfolder, "Z://test/test1.zip");
-                                        
-                                        
+                                        ZipFile.CreateFromDirectory(zipfolder, "C:\\Users\\student\\source\\repos\\os_1\\test\\test1.zip");
+
+
                                         break;
                                     }
                                 case 3:
@@ -347,9 +347,9 @@ using System.Xml.Serialization;
                                             {
                                                 dirInfo.Create();
                                             }
-                                            ZipFile.ExtractToDirectory("Z://test/test1.zip", targetFolder);
+                                            ZipFile.ExtractToDirectory("C:\\Users\\student\\source\\repos\\os_1\\test\\test1.zip", targetFolder);
 
-                                            FileInfo fInfo = new FileInfo(targetFolder+"/note.txt");
+                                            FileInfo fInfo = new FileInfo(targetFolder + "/note.txt");
                                             if (fInfo.Exists)
                                             {
                                                 using (FileStream fstream = File.OpenRead(targetFolder + "/note.txt"))
@@ -379,7 +379,7 @@ using System.Xml.Serialization;
                                     {
                                         Console.WriteLine("Введите название архива, который хотите удалить:");
                                         string delzip = Console.ReadLine();
-                                        delzip = "Z://test/" + delzip;
+                                        delzip = "C:\\Users\\student\\source\\repos\\os_1\\test\\" + delzip;
                                         FileInfo fileInf = new FileInfo(delzip);
                                         if (fileInf.Exists)
                                         {
