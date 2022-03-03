@@ -34,16 +34,16 @@ namespace os
                 Console.WriteLine("Работа с форматом JSON - 3");
                 Console.WriteLine("Работа с форматом XML - 4");
                 Console.WriteLine("Работа с zip архивами - 5");
-                int vbr = Convert.ToInt32(Console.ReadLine());
+                string vbr = Console.ReadLine();
 
                 switch (vbr)
                 {
-                    case 0:
+                    case "0":
                         {
                             humus = false;
                             break;
                         }
-                    case 1:
+                    case "1":
                         {
                             DriveInfo[] drives = DriveInfo.GetDrives();
 
@@ -61,7 +61,7 @@ namespace os
                             }
                             break;
                         }
-                    case 2:
+                    case "2":
                         {
                             string path = "C:\\Users\\student\\source\\repos\\os_1\\test\\";
                             Console.WriteLine("Выберите функцию:");
@@ -70,14 +70,14 @@ namespace os
                             Console.WriteLine("Записать в файл строку, введённую пользователем - 2");
                             Console.WriteLine("Прочитать файл в консоль - 3");
                             Console.WriteLine("Удалить файл - 4");
-                            int vbr1 = Convert.ToInt32(Console.ReadLine());
+                            string vbr1 = Console.ReadLine();
                             switch (vbr1)
                             {
-                                case 0:
+                                case "0":
                                     {
                                         break;
                                     }
-                                case 1:
+                                case "1":
                                     {
                                         DirectoryInfo dirInfo = new DirectoryInfo(path);
                                         if (!dirInfo.Exists)
@@ -89,7 +89,7 @@ namespace os
                                         }
                                         break;
                                     }
-                                case 2:
+                                case "2":
                                     {
                                         DirectoryInfo dirInfo = new DirectoryInfo(path);
                                         if (!dirInfo.Exists)
@@ -109,7 +109,7 @@ namespace os
                                         }
                                         break;
                                     }
-                                case 3:
+                                case "3":
                                     {
                                         FileInfo fInfo = new FileInfo($"{path}\\note.txt");
                                         if (fInfo.Exists)
@@ -130,7 +130,7 @@ namespace os
                                         }
                                         break;
                                     }
-                                case 4:
+                                case "4":
                                     {
                                         FileInfo f1Info = new FileInfo($"{path}\\note.txt");
                                         if (f1Info.Exists)
@@ -147,25 +147,29 @@ namespace os
                                         }
                                         break;
                                     }
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("Неверное значение");
+                                    break;
 
                             }
                             break;
                         }
-                    case 3:
+                    case "3":
                         {
                             Console.WriteLine("Выберите функцию:");
                             Console.WriteLine("Выйти в главное меню - 0");
                             Console.WriteLine("Создать новый объект. Выполнить сериализацию объекта в формате JSON и записать в файл. - 1");
                             Console.WriteLine("Прочитать файл в консоль - 2");
                             Console.WriteLine("Удалить файл - 3");
-                            int vbr2 = Convert.ToInt32(Console.ReadLine());
+                            string vbr2 = Console.ReadLine();
                             switch (vbr2)
                             {
-                                case 0:
+                                case "0":
                                     {
                                         break;
                                     }
-                                case 1:
+                                case "1":
                                     {
                                         using (FileStream fs = new FileStream("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json", FileMode.OpenOrCreate))
                                         {
@@ -178,7 +182,7 @@ namespace os
                                         }
                                         break;
                                     }
-                                case 2:
+                                case "2":
                                     {
                                         FileInfo f1Info = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json");
                                         if (f1Info.Exists)
@@ -195,7 +199,7 @@ namespace os
                                         }
                                         break;
                                     }
-                                case 3:
+                                case "3":
                                     {
                                         FileInfo f1Info = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\user.json");
                                         if (f1Info.Exists)
@@ -212,10 +216,14 @@ namespace os
                                         }
                                         break;
                                     }
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("Неверное значение");
+                                    break;
                             }
                             break;
                         }
-                    case 4:
+                    case "4":
                         {
                             Console.WriteLine("Выберите функцию:");
                             Console.WriteLine("Выйти в главное меню - 0");
@@ -223,21 +231,21 @@ namespace os
                             Console.WriteLine("Записать в файл новые данные из консоли - 2");
                             Console.WriteLine("Прочитать файл в консоль - 3");
                             Console.WriteLine("Удалить файл - 4");
-                            int vbr3 = Convert.ToInt32(Console.ReadLine());
+                            string vbr3 = Console.ReadLine();
                             switch (vbr3)
                             {
-                                case 0:
+                                case "0":
                                     {
                                         break;
                                     }
-                                case 1:
+                                case "1":
                                     {
                                         using (FileStream fstream = new FileStream("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml", FileMode.Create))
                                         {
                                         }
                                         break;
                                     }
-                                case 2:
+                                case "2":
                                     {
                                         Car avto = new Car(); //объявляем avto экземпляром класса
                                         Console.WriteLine("Введите данные автомобиля");
@@ -255,7 +263,7 @@ namespace os
                                         writer.Close();
                                         break;
                                     }
-                                case 3:
+                                case "3":
                                     {
                                         Car avto = new Car(); //объявляем avto экземпляром класса
                                         Stream streamout = new FileStream("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml", FileMode.Open, FileAccess.Read);
@@ -266,7 +274,7 @@ namespace os
                                         Console.WriteLine(avto.Marka + "    " + avto.Model + "    " + avto.Cvet + "    " + avto.Vypusk);
                                         break;
                                     }
-                                case 4:
+                                case "4":
                                     {
                                         FileInfo f1Info = new FileInfo("C:\\Users\\student\\source\\repos\\os_1\\test\\car.xml");
                                         if (f1Info.Exists)
@@ -283,10 +291,14 @@ namespace os
                                         }
                                         break;
                                     }
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("Неверное значение");
+                                    break;
                             }
                             break;
                         }
-                    case 5:
+                    case "5":
                         {
                             string zipfolder = "C:\\Users\\student\\source\\repos\\os_1\\test\\0fold/";
                             string sourceFolder = "C:\\Users\\student\\source\\repos\\os_1\\test\\"; // исходная папка
@@ -298,14 +310,14 @@ namespace os
                             Console.WriteLine("Добавить файл, выбранный пользователем, в архив - 2");
                             Console.WriteLine("Разархивировать файл и вывести данные о нем - 3");
                             Console.WriteLine("Удалить файл и архив - 4");
-                            int vbr1 = Convert.ToInt32(Console.ReadLine());
+                            string vbr1 = Console.ReadLine();
                             switch (vbr1)
                             {
-                                case 0:
+                                case "0":
                                     {
                                         break;
                                     }
-                                case 1:
+                                case "1":
                                     {
                                         DirectoryInfo dirInfo = new DirectoryInfo(sourceFolder);
                                         if (!dirInfo.Exists)
@@ -317,7 +329,7 @@ namespace os
                                         }
                                         break;
                                     }
-                                case 2:
+                                case "2":
                                     {
                                         DirectoryInfo dirInfo = new DirectoryInfo(zipfolder);
                                         if (!dirInfo.Exists)
@@ -337,7 +349,7 @@ namespace os
 
                                         break;
                                     }
-                                case 3:
+                                case "3":
                                     {
                                         FileInfo fileInf2 = new FileInfo(arhiv);
                                         if (fileInf2.Exists)
@@ -375,7 +387,7 @@ namespace os
 
                                         break;
                                     }
-                                case 4:
+                                case "4":
                                     {
                                         Console.WriteLine("Введите название архива, который хотите удалить:");
                                         string delzip = Console.ReadLine();
@@ -392,6 +404,10 @@ namespace os
                                         }
                                         break;
                                     }
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("Неверное значение");
+                                    break;
                             }
 
                             break;
